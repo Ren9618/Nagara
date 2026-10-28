@@ -1,0 +1,17 @@
+# macOS / Xcode
+.DS_Store
+*.xcworkspace
+xcuserdata/
+DerivedData/
+build/
+
+# Windows / .NET
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+.vs/
+*.user
+*.suo
+
+# General
+*.log
