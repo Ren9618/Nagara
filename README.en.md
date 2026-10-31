@@ -15,13 +15,14 @@ Media keys normally go to whichever app grabbed the media session last. If you l
 1. Download the latest `Nagara-vX.Y.Z-mac.zip` from [Releases](https://github.com/Ren9618/Nagara/releases), unzip it, and move `Nagara.app` to your Applications folder.
 2. First launch: the app is not Developer ID signed, so macOS may refuse to open it. Right-click `Nagara.app` and choose "Open", or allow it under System Settings → Privacy & Security.
 3. Media-key interception requires Accessibility permission. Follow the in-app guidance and turn Nagara ON under System Settings → Privacy & Security → Accessibility.
-4. Controlling Spotify / Apple Music requires Automation permission. macOS will ask the first time Nagara controls them.
+4. Controlling a player requires Automation permission. macOS will ask the first time Nagara controls it.
 
 ## Features
 
-- Pin media keys to a target: Spotify / Apple Music / Automatic (the player that is playing)
+- Pin media keys to a target: Spotify / Apple Music / an added app / Automatic (the player that is playing)
+- Add or remove apps that expose AppleScript playback commands (play/pause, next, previous) from Settings (saved by bundle ID, no network access)
 - Switch the target with one click from the menu bar
-- If the target app is not running, the Play key launches it and starts playback
+- If the target app is not running, the Play key launches it and starts playback (custom apps whose state cannot be read are only launched)
 - Optional launch at login
 - Multilingual UI: English / Japanese (follows the OS language)
 - No network access, no telemetry. Settings are stored locally only.
@@ -33,6 +34,9 @@ Media keys normally go to whichever app grabbed the media session last. If you l
 - Windows: in development
 
 ## Known limitations
+
+- Custom apps must expose AppleScript playback commands (play/pause, next, previous). Apps whose playback state cannot be read work as fixed targets only.
+- Custom apps are never selected in Automatic mode.
 
 - In Automatic mode, the routing decision is an approximation based on the last target Nagara sent to and the playback state at key-press time. If you start or stop playback manually outside Nagara, the decision may be stale.
 - Replacing the app may require re-granting the Accessibility permission, due to how macOS TCC works.
