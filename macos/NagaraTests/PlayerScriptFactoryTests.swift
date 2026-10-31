@@ -60,4 +60,80 @@ final class PlayerScriptFactoryTests: XCTestCase {
         XCTAssertEqual(PlaybackTarget.spotify.bundleIdentifier, "com.spotify.client")
         XCTAssertEqual(PlaybackTarget.appleMusic.bundleIdentifier, "com.apple.Music")
     }
+
+    func testCustomScriptsUseDetectedCommandNames() {
+        let profile = PlayerCommandProfile(
+            playPauseCommand: "playpause",
+            playCommand: "play",
+            pauseCommand: "pause",
+            nextTrackCommand: "next",
+            previousTrackCommand: "previous",
+            stateQuery: .playing
+        )
+
+        XCTAssertEqual(
+            PlayerScriptFactory.commandScript(
+                for: .nextTrack,
+                profile: profile,
+                bundleIdentifier: "com.example.Player"
+            ),
+            "tell application id \"com.example.Player\" to next"
+        )
+        XCTAssertEqual(
+            PlayerScriptFactory.stateScript(
+                for: profile,
+                bundleIdentifier: "com.example.Player"
+            ),
+            "tell application id \"com.example.Player\" to playing as string"
+        )
+    }
+
+    func testCustomPlayPauseUsesSeparateCommandsWhenStateIsKnown() {
+        let profile = PlayerCommandProfile(
+            playPauseCommand: nil,
+            playCommand: "play",
+            pauseCommand: "pause",
+            nextTrackCommand: "next track",
+            previousTrackCommand: "previous track",
+            stateQuery: .playerState
+        )
+
+        XCTAssertEqual(
+            PlayerScriptFactory.commandScript(
+                for: .playPause,
+                profile: profile,
+                state: .playing,
+                bundleIdentifier: "com.example.Player"
+            ),
+            "tell application id \"com.example.Player\" to pause"
+        )
+        XCTAssertEqual(
+            PlayerScriptFactory.commandScript(
+                for: .playPause,
+                profile: profile,
+                state: .paused,
+                bundleIdentifier: "com.example.Player"
+            ),
+            "tell application id \"com.example.Player\" to play"
+        )
+    }
+
+    func testCustomPlayScriptFallsBackToPlayPause() {
+        let profile = PlayerCommandProfile(
+            playPauseCommand: "playpause",
+            playCommand: nil,
+            pauseCommand: nil,
+            nextTrackCommand: "next track",
+            previousTrackCommand: "previous track",
+            stateQuery: nil
+        )
+
+        XCTAssertEqual(
+            PlayerScriptFactory.playScript(
+                for: profile,
+                bundleIdentifier: "com.example.Player"
+            ),
+            "tell application id \"com.example.Player\" to playpause"
+        )
+    }
 }

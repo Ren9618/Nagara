@@ -63,19 +63,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func configurePlayerController() {
-        playerController.onAutomationDenied = { [weak self] target in
+        playerController.onAutomationDenied = { [weak self] destination in
             guard let self else {
                 return
             }
-            let isFirstDenial = self.permissions.noteAutomationDenied(target)
+            let isFirstDenial = self.permissions.noteAutomationDenied(
+                bundleIdentifier: destination.bundleIdentifier
+            )
             self.statusMenuController?.refresh()
             if isFirstDenial {
                 self.showPermissionGuidance()
             }
         }
 
-        playerController.onAutomationSucceeded = { [weak self] target in
-            self?.permissions.noteAutomationSucceeded(target)
+        playerController.onAutomationSucceeded = { [weak self] destination in
+            self?.permissions.noteAutomationSucceeded(
+                bundleIdentifier: destination.bundleIdentifier
+            )
             self?.statusMenuController?.refresh()
         }
     }

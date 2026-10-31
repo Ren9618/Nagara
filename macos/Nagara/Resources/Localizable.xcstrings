@@ -1,6 +1,74 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "command.nextTrack" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次へ"
+          }
+        }
+      }
+    },
+    "command.playPause" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play/Pause"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再生／一時停止"
+          }
+        }
+      }
+    },
+    "command.previousTrack" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previous"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前へ"
+          }
+        }
+      }
+    },
+    "common.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
     "diagnostics.heading" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -133,6 +201,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "メディアキーを横取り"
+          }
+        }
+      }
+    },
+    "menu.customApps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Custom apps"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタムアプリ"
           }
         }
       }
@@ -293,13 +378,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "macOS shows a confirmation dialog the first time Nagara controls a player. If it was declined, open System Settings → Privacy & Security → Automation and enable Nagara for Spotify and Apple Music."
+            "value" : "macOS shows a confirmation dialog the first time Nagara controls a player. If it was declined, open System Settings → Privacy & Security → Automation and enable Nagara for the player you want to control."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nagara が初めてプレイヤーを操作するときに、macOS の確認ダイアログが表示されます。拒否した場合は、システム設定 → プライバシーとセキュリティ → オートメーション で Spotify と Apple Music に対する Nagara をオンにしてください。"
+            "value" : "Nagara が初めてプレイヤーを操作するときに、macOS の確認ダイアログが表示されます。拒否した場合は、システム設定 → プライバシーとセキュリティ → オートメーション で、操作したいプレイヤーに対する Nagara をオンにしてください。"
           }
         }
       }
@@ -443,13 +528,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nagara needs the following permissions to capture media keys and control Spotify or Apple Music."
+            "value" : "Nagara needs the following permissions to capture media keys and control the player you choose."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nagara がメディアキーを横取りし、Spotify / Apple Music を操作するには、次の権限が必要です。"
+            "value" : "Nagara がメディアキーを横取りし、選択したプレイヤーを操作するには、次の権限が必要です。"
           }
         }
       }
@@ -547,6 +632,261 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nagara の権限設定"
+          }
+        }
+      }
+    },
+    "settings.customApps.add" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add App…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを追加…"
+          }
+        }
+      }
+    },
+    "settings.customApps.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No custom apps have been added."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタムアプリはまだ追加されていません。"
+          }
+        }
+      }
+    },
+    "settings.customApps.error.duplicate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app has already been added."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリはすでに追加されています。"
+          }
+        }
+      }
+    },
+    "settings.customApps.error.invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The selected item is not a valid application."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択した項目は有効なアプリではありません。"
+          }
+        }
+      }
+    },
+    "settings.customApps.error.missingCommands" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app does not support the required playback commands: %@."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリは必要な再生コマンドに対応していません: %@。"
+          }
+        }
+      }
+    },
+    "settings.customApps.error.notScriptable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app does not provide an AppleScript dictionary for playback control."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリには再生操作用の AppleScript 辞書がありません。"
+          }
+        }
+      }
+    },
+    "settings.customApps.error.preset" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is already available as a built-in target."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ は標準の送り先として利用できます。"
+          }
+        }
+      }
+    },
+    "settings.customApps.error.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cannot add app"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを追加できません"
+          }
+        }
+      }
+    },
+    "settings.customApps.footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apps must support AppleScript playback commands (play/pause, next, previous). Added apps can be chosen as fixed targets but are not used by Automatic."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AppleScript の再生コマンド（再生／一時停止、次へ、前へ）に対応したアプリを追加できます。追加したアプリは固定の送り先として選べますが、「自動」では使用されません。"
+          }
+        }
+      }
+    },
+    "settings.customApps.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Custom apps"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタムアプリ"
+          }
+        }
+      }
+    },
+    "settings.customApps.panel.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose an app that supports AppleScript playback control."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AppleScript で再生操作に対応したアプリを選択してください。"
+          }
+        }
+      }
+    },
+    "settings.customApps.panel.prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "追加"
+          }
+        }
+      }
+    },
+    "settings.customApps.panel.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add App"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを追加"
+          }
+        }
+      }
+    },
+    "settings.customApps.removeApp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove %@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ を削除"
+          }
+        }
+      }
+    },
+    "settings.customApps.stateUnavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Playback state is unavailable. Media keys are sent without checking state."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再生状態を取得できません。状態を確認せずにメディアキーを送ります。"
           }
         }
       }
@@ -687,13 +1027,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Required to control Spotify and Apple Music. macOS asks on first use."
+            "value" : "Required to control the player you choose. macOS asks on first use."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spotify と Apple Music を操作するために必要です。初回の操作時に macOS が確認します。"
+            "value" : "選択したプレイヤーを操作するために必要です。初回の操作時に macOS が確認します。"
           }
         }
       }
@@ -792,6 +1132,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "システム設定を開く"
+          }
+        }
+      }
+    },
+    "settings.routing.customNote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Custom apps can be selected as fixed targets. Automatic does not route to them."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カスタムアプリは固定の送り先として選べます。「自動」では使用されません。"
           }
         }
       }

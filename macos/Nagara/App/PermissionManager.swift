@@ -16,8 +16,12 @@ enum AutomationPermissionStatus {
 final class PermissionManager: ObservableObject {
     @Published private(set) var accessibilityGranted: Bool
     @Published private(set) var eventTapActive = false
-    @Published private(set) var automationDeniedTargets: Set<PlaybackTarget> = []
-    @Published private(set) var automationGrantedTargets: Set<PlaybackTarget> = []
+    @Published private(set) var automationDeniedBundleIDs: Set<String> = []
+    @Published private(set) var automationGrantedBundleIDs: Set<String> = []
+
+    var hasAutomationDenial: Bool {
+        !automationDeniedBundleIDs.isEmpty
+    }
 
     init() {
         accessibilityGranted = AXIsProcessTrusted()
@@ -56,23 +60,31 @@ final class PermissionManager: ObservableObject {
         }
     }
 
-    /// Returns true when this is the first denial recorded for the target.
+    /// Returns true when this is the first denial recorded for the bundle.
     @discardableResult
-    func noteAutomationDenied(_ target: PlaybackTarget) -> Bool {
-        automationGrantedTargets.remove(target)
-        return automationDeniedTargets.insert(target).inserted
+    func noteAutomationDenied(bundleIdentifier: String) -> Bool {
+        automationGrantedBundleIDs.remove(bundleIdentifier)
+        return automationDeniedBundleIDs.insert(bundleIdentifier).inserted
     }
 
-    func noteAutomationSucceeded(_ target: PlaybackTarget) {
-        automationDeniedTargets.remove(target)
-        automationGrantedTargets.insert(target)
+    func noteAutomationSucceeded(bundleIdentifier: String) {
+        automationDeniedBundleIDs.remove(bundleIdentifier)
+        automationGrantedBundleIDs.insert(bundleIdentifier)
     }
 
     func automationStatus(for target: PlaybackTarget) -> AutomationPermissionStatus {
-        if automationGrantedTargets.contains(target) {
+        automationStatus(forBundleIdentifier: target.bundleIdentifier)
+    }
+
+    func automationStatus(for destination: PlaybackDestination) -> AutomationPermissionStatus {
+        automationStatus(forBundleIdentifier: destination.bundleIdentifier)
+    }
+
+    private func automationStatus(forBundleIdentifier bundleIdentifier: String) -> AutomationPermissionStatus {
+        if automationGrantedBundleIDs.contains(bundleIdentifier) {
             return .granted
         }
-        if automationDeniedTargets.contains(target) {
+        if automationDeniedBundleIDs.contains(bundleIdentifier) {
             return .denied
         }
         return .notChecked

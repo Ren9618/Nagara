@@ -35,6 +35,18 @@
 		B1000000000000000000000CA /* MediaKeyRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000CA /* MediaKeyRouterTests.swift */; };
 		B1000000000000000000000CB /* PlayerScriptFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000CB /* PlayerScriptFactoryTests.swift */; };
 		B1000000000000000000000CC /* RoutingEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000CC /* RoutingEngineTests.swift */; };
+		B100000000000000000000011 /* PlayerCommandProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000011 /* PlayerCommandProfile.swift */; };
+		B100000000000000000000012 /* PlaybackDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000012 /* PlaybackDestination.swift */; };
+		B100000000000000000000013 /* ScriptingDefinitionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000013 /* ScriptingDefinitionParser.swift */; };
+		B100000000000000000000014 /* PlayerCommandPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000014 /* PlayerCommandPlanner.swift */; };
+		B100000000000000000000015 /* CustomAppInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000015 /* CustomAppInspector.swift */; };
+		075A15733092C9F7002842D2 /* PlayerCommandProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000011 /* PlayerCommandProfile.swift */; };
+		075A15743092C9F7002842D2 /* PlaybackDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000012 /* PlaybackDestination.swift */; };
+		075A15753092C9F7002842D2 /* ScriptingDefinitionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000013 /* ScriptingDefinitionParser.swift */; };
+		075A15763092C9F7002842D2 /* PlayerCommandPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000014 /* PlayerCommandPlanner.swift */; };
+		B1000000000000000000000CD /* ScriptingDefinitionParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000CD /* ScriptingDefinitionParserTests.swift */; };
+		B1000000000000000000000CE /* PlayerCommandPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000CE /* PlayerCommandPlannerTests.swift */; };
+		B1000000000000000000000CF /* CustomAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1000000000000000000000CF /* CustomAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +83,14 @@
 		F1000000000000000000000CA /* MediaKeyRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyRouterTests.swift; sourceTree = "<group>"; };
 		F1000000000000000000000CB /* PlayerScriptFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScriptFactoryTests.swift; sourceTree = "<group>"; };
 		F1000000000000000000000CC /* RoutingEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingEngineTests.swift; sourceTree = "<group>"; };
+		F100000000000000000000011 /* PlayerCommandProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCommandProfile.swift; sourceTree = "<group>"; };
+		F100000000000000000000012 /* PlaybackDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackDestination.swift; sourceTree = "<group>"; };
+		F100000000000000000000013 /* ScriptingDefinitionParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptingDefinitionParser.swift; sourceTree = "<group>"; };
+		F100000000000000000000014 /* PlayerCommandPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCommandPlanner.swift; sourceTree = "<group>"; };
+		F100000000000000000000015 /* CustomAppInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppInspector.swift; sourceTree = "<group>"; };
+		F1000000000000000000000CD /* ScriptingDefinitionParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptingDefinitionParserTests.swift; sourceTree = "<group>"; };
+		F1000000000000000000000CE /* PlayerCommandPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCommandPlannerTests.swift; sourceTree = "<group>"; };
+		F1000000000000000000000CF /* CustomAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppTests.swift; sourceTree = "<group>"; };
 		F200000000000000000000001 /* Nagara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nagara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F200000000000000000000002 /* NagaraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NagaraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -117,6 +137,7 @@
 			children = (
 				F100000000000000000000001 /* AppDelegate.swift */,
 				F100000000000000000000002 /* AppleScriptPlayerController.swift */,
+				F100000000000000000000015 /* CustomAppInspector.swift */,
 				F100000000000000000000003 /* Localization.swift */,
 				F100000000000000000000004 /* LoginItemManager.swift */,
 				F100000000000000000000005 /* MediaKeyTap.swift */,
@@ -135,9 +156,13 @@
 				F10000000000000000000000B /* MediaKeyEventParser.swift */,
 				F10000000000000000000000C /* MediaKeyRouter.swift */,
 				F10000000000000000000000D /* Models.swift */,
+				F100000000000000000000012 /* PlaybackDestination.swift */,
+				F100000000000000000000014 /* PlayerCommandPlanner.swift */,
+				F100000000000000000000011 /* PlayerCommandProfile.swift */,
 				F10000000000000000000000E /* PlayerControlling.swift */,
 				F10000000000000000000000F /* PlayerScriptFactory.swift */,
 				F100000000000000000000010 /* RoutingEngine.swift */,
+				F100000000000000000000013 /* ScriptingDefinitionParser.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -159,6 +184,9 @@
 				F1000000000000000000000CA /* MediaKeyRouterTests.swift */,
 				F1000000000000000000000CB /* PlayerScriptFactoryTests.swift */,
 				F1000000000000000000000CC /* RoutingEngineTests.swift */,
+				F1000000000000000000000CD /* ScriptingDefinitionParserTests.swift */,
+				F1000000000000000000000CE /* PlayerCommandPlannerTests.swift */,
+				F1000000000000000000000CF /* CustomAppTests.swift */,
 			);
 			path = NagaraTests;
 			sourceTree = "<group>";
@@ -289,6 +317,11 @@
 				B10000000000000000000000E /* PlayerControlling.swift in Sources */,
 				B10000000000000000000000F /* PlayerScriptFactory.swift in Sources */,
 				B100000000000000000000010 /* RoutingEngine.swift in Sources */,
+				B100000000000000000000011 /* PlayerCommandProfile.swift in Sources */,
+				B100000000000000000000012 /* PlaybackDestination.swift in Sources */,
+				B100000000000000000000013 /* ScriptingDefinitionParser.swift in Sources */,
+				B100000000000000000000014 /* PlayerCommandPlanner.swift in Sources */,
+				B100000000000000000000015 /* CustomAppInspector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,10 +335,17 @@
 				075A15703092C9F7002842D2 /* PlayerControlling.swift in Sources */,
 				075A15713092C9F7002842D2 /* PlayerScriptFactory.swift in Sources */,
 				075A15723092C9F7002842D2 /* RoutingEngine.swift in Sources */,
+				075A15733092C9F7002842D2 /* PlayerCommandProfile.swift in Sources */,
+				075A15743092C9F7002842D2 /* PlaybackDestination.swift in Sources */,
+				075A15753092C9F7002842D2 /* ScriptingDefinitionParser.swift in Sources */,
+				075A15763092C9F7002842D2 /* PlayerCommandPlanner.swift in Sources */,
 				B1000000000000000000000C9 /* MediaKeyEventParserTests.swift in Sources */,
 				B1000000000000000000000CA /* MediaKeyRouterTests.swift in Sources */,
 				B1000000000000000000000CB /* PlayerScriptFactoryTests.swift in Sources */,
 				B1000000000000000000000CC /* RoutingEngineTests.swift in Sources */,
+				B1000000000000000000000CD /* ScriptingDefinitionParserTests.swift in Sources */,
+				B1000000000000000000000CE /* PlayerCommandPlannerTests.swift in Sources */,
+				B1000000000000000000000CF /* CustomAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +514,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = 52K749PUBP;
@@ -504,7 +544,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -559,7 +599,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = 52K749PUBP;
@@ -583,7 +623,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -637,7 +677,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -660,7 +700,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -713,7 +753,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -730,7 +770,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;

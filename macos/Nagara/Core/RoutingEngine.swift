@@ -3,15 +3,16 @@ import Foundation
 /// Decides which player receives a media key command.
 ///
 /// The engine is deliberately pure so the routing rules can be unit tested
-/// without touching AppleScript or AppKit.
+/// without touching AppleScript or AppKit. Custom apps are intentionally not
+/// part of automatic routing in v0.2.
 struct RoutingEngine {
     func target(
         for mode: RoutingMode,
         states: [PlaybackTarget: PlayerState],
         lastPlaying: PlaybackTarget?
     ) -> PlaybackTarget {
-        if let fixedTarget = mode.fixedTarget {
-            return fixedTarget
+        if let fixedPreset = mode.fixedDestination?.presetTarget {
+            return fixedPreset
         }
 
         let playingTargets = PlaybackTarget.allCases.filter { states[$0] == .playing }

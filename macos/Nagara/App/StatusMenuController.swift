@@ -62,7 +62,7 @@ final class StatusMenuController: NSObject, NSMenuDelegate {
             )
         }
 
-        if !permissions.automationDeniedTargets.isEmpty {
+        if permissions.hasAutomationDenial {
             addWarningItem(
                 titleKey: "menu.permission.automation",
                 action: #selector(openPermissionGuidance),
@@ -81,9 +81,35 @@ final class StatusMenuController: NSObject, NSMenuDelegate {
                 keyEquivalent: ""
             )
             item.target = self
-            item.representedObject = mode.rawValue
+            item.representedObject = mode.persistedValue
             item.state = settings.mode == mode ? .on : .off
             menu.addItem(item)
+        }
+
+        if !settings.customApps.isEmpty {
+            menu.addItem(.separator())
+
+            let customMenu = NSMenu()
+            for app in settings.customApps {
+                let mode = RoutingMode.custom(app)
+                let item = NSMenuItem(
+                    title: app.displayName,
+                    action: #selector(selectMode(_:)),
+                    keyEquivalent: ""
+                )
+                item.target = self
+                item.representedObject = mode.persistedValue
+                item.state = settings.mode == mode ? .on : .off
+                customMenu.addItem(item)
+            }
+
+            let customItem = NSMenuItem(
+                title: L10n.text("menu.customApps"),
+                action: nil,
+                keyEquivalent: ""
+            )
+            customItem.submenu = customMenu
+            menu.addItem(customItem)
         }
 
         menu.addItem(.separator())
@@ -128,8 +154,8 @@ final class StatusMenuController: NSObject, NSMenuDelegate {
 
     @objc private func selectMode(_ sender: NSMenuItem) {
         guard
-            let rawValue = sender.representedObject as? String,
-            let mode = RoutingMode(rawValue: rawValue)
+            let value = sender.representedObject as? String,
+            let mode = RoutingMode.fromPersistedValue(value, customApps: settings.customApps)
         else {
             return
         }

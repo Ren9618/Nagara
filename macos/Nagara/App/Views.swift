@@ -1,5 +1,11 @@
 import AppKit
 import SwiftUI
+import UniformTypeIdentifiers
+
+private struct CustomAppAddFailure: Identifiable {
+    let id = UUID()
+    let message: String
+}
 
 struct SettingsView: View {
     @ObservedObject var settings: SettingsStore
@@ -10,9 +16,10 @@ struct SettingsView: View {
     let onCheckMusicAutomation: () -> Void
 
     @State private var diagnosticsExpanded = false
+    @State private var addFailure: CustomAppAddFailure?
 
     private var version: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.1.0"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.2.0"
     }
 
     private var executionPath: String {
@@ -47,11 +54,45 @@ struct SettingsView: View {
                     Spacer(minLength: 0)
                 }
 
+                if !settings.customApps.isEmpty {
+                    VStack(alignment: .leading, spacing: 8) {
+                        ForEach(settings.customApps) { app in
+                            routingModeButton(for: .custom(app))
+                        }
+                    }
+
+                    Text("settings.routing.customNote")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+
                 Text("settings.routing.footer")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             } header: {
                 Text("settings.routing.header")
+            }
+
+            Section {
+                if settings.customApps.isEmpty {
+                    Text("settings.customApps.empty")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                } else {
+                    ForEach(settings.customApps) { app in
+                        customAppRow(app)
+                    }
+                }
+
+                Button("settings.customApps.add") {
+                    chooseCustomApp()
+                }
+
+                Text("settings.customApps.footer")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            } header: {
+                Text("settings.customApps.header")
             }
 
             Section {
@@ -189,6 +230,105 @@ struct SettingsView: View {
         }
         .formStyle(.grouped)
         .frame(width: 520, height: 720)
+        .alert(
+            "settings.customApps.error.title",
+            isPresented: Binding(
+                get: { addFailure != nil },
+                set: { if !$0 { addFailure = nil } }
+            )
+        ) {
+            Button("common.ok", role: .cancel) {
+                addFailure = nil
+            }
+        } message: {
+            Text(verbatim: addFailure?.message ?? "")
+        }
+    }
+
+    @ViewBuilder
+    private func customAppRow(_ app: CustomPlayerApp) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(verbatim: app.displayName)
+                Text(verbatim: app.bundleIdentifier)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+
+                if !app.profile.supportsStateQuery {
+                    Text("settings.customApps.stateUnavailable")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            Spacer(minLength: 0)
+
+            Button {
+                settings.removeCustomApp(app)
+            } label: {
+                Image(systemName: "minus.circle")
+            }
+            .buttonStyle(.borderless)
+            .foregroundStyle(.red)
+            .help(Text(L10n.format("settings.customApps.removeApp", app.displayName)))
+            .accessibilityLabel(Text(L10n.format("settings.customApps.removeApp", app.displayName)))
+        }
+    }
+
+    private func chooseCustomApp() {
+        let panel = NSOpenPanel()
+        panel.title = L10n.text("settings.customApps.panel.title")
+        panel.message = L10n.text("settings.customApps.panel.message")
+        panel.prompt = L10n.text("settings.customApps.panel.prompt")
+        panel.allowedContentTypes = [.application]
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = false
+        panel.canChooseFiles = true
+        panel.directoryURL = URL(fileURLWithPath: "/Applications", isDirectory: true)
+
+        guard panel.runModal() == .OK, let url = panel.url else {
+            return
+        }
+
+        let existingBundleIdentifiers = Set(settings.customApps.map(\.bundleIdentifier))
+        switch CustomAppInspector.inspect(
+            url: url,
+            existingBundleIdentifiers: existingBundleIdentifiers
+        ) {
+        case .success(let app):
+            settings.addCustomApp(app)
+
+        case .failure(let error):
+            addFailure = CustomAppAddFailure(message: message(for: error))
+        }
+    }
+
+    private func message(for error: CustomAppInspectionError) -> String {
+        switch error {
+        case .invalidApplication:
+            return L10n.text("settings.customApps.error.invalid")
+
+        case .notScriptable:
+            return L10n.text("settings.customApps.error.notScriptable")
+
+        case .unsupported(let missing):
+            let names = PlayerCommandRequirement.allCases
+                .filter(missing.contains)
+                .map(L10n.commandName)
+            return L10n.format(
+                "settings.customApps.error.missingCommands",
+                ListFormatter.localizedString(byJoining: names)
+            )
+
+        case .duplicate:
+            return L10n.text("settings.customApps.error.duplicate")
+
+        case .preset(let target):
+            return L10n.format(
+                "settings.customApps.error.preset",
+                L10n.targetName(target)
+            )
+        }
     }
 
     @ViewBuilder

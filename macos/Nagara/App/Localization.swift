@@ -15,7 +15,30 @@ enum L10n {
         text(target.localizationKey)
     }
 
+    static func destinationName(_ destination: PlaybackDestination) -> String {
+        switch destination {
+        case .preset(let target):
+            return targetName(target)
+        case .custom(let app):
+            return app.displayName
+        }
+    }
+
     static func modeName(_ mode: RoutingMode) -> String {
-        text(mode.localizationKey)
+        if let key = mode.localizationKey {
+            return text(key)
+        }
+        return mode.customApp?.displayName ?? ""
+    }
+
+    static func commandName(_ requirement: PlayerCommandRequirement) -> String {
+        switch requirement {
+        case .playPause:
+            return text("command.playPause")
+        case .nextTrack:
+            return text("command.nextTrack")
+        case .previousTrack:
+            return text("command.previousTrack")
+        }
     }
 }

@@ -4,20 +4,24 @@ final class MediaKeyRouterTests: XCTestCase {
     private final class MockPlayerController: PlayerControlling {
         struct Command: Equatable {
             let action: MediaKeyAction
-            let target: PlaybackTarget
+            let target: PlaybackDestination
         }
 
         var states: [PlaybackTarget: PlayerState] = [:]
-        private(set) var stateQueries: [PlaybackTarget] = []
+        var destinationStates: [PlaybackDestination: PlayerState] = [:]
+        private(set) var stateQueries: [PlaybackDestination] = []
         private(set) var commands: [Command] = []
 
-        func playerState(of target: PlaybackTarget) -> PlayerState {
-            stateQueries.append(target)
-            return states[target] ?? .unknown
+        func playerState(of destination: PlaybackDestination) -> PlayerState {
+            stateQueries.append(destination)
+            if let preset = destination.presetTarget {
+                return states[preset] ?? .unknown
+            }
+            return destinationStates[destination] ?? .unknown
         }
 
-        func send(_ action: MediaKeyAction, to target: PlaybackTarget) {
-            commands.append(Command(action: action, target: target))
+        func send(_ action: MediaKeyAction, to destination: PlaybackDestination) {
+            commands.append(Command(action: action, target: destination))
         }
     }
 
@@ -142,5 +146,63 @@ final class MediaKeyRouterTests: XCTestCase {
         router.handle(.nextTrack)
         XCTAssertEqual(router.lastPlaying, .appleMusic)
         XCTAssertEqual(controller.commands.last, .init(action: .nextTrack, target: .appleMusic))
+    }
+
+    // MARK: - Custom apps (v0.2)
+
+    private func makeCustomApp(stateAvailable: Bool) -> CustomPlayerApp {
+        CustomPlayerApp(
+            bundleIdentifier: "com.example.Player",
+            displayName: "Example Player",
+            profile: PlayerCommandProfile(
+                playPauseCommand: "playpause",
+                playCommand: "play",
+                pauseCommand: "pause",
+                nextTrackCommand: "next track",
+                previousTrackCommand: "previous track",
+                stateQuery: stateAvailable ? .playerState : nil
+            )
+        )
+    }
+
+    func testFixedCustomTargetSendsOnlyToTheCustomApp() {
+        let app = makeCustomApp(stateAvailable: true)
+        router.updateMode(.custom(app))
+        controller.destinationStates[.custom(app)] = .playing
+
+        router.handle(.nextTrack)
+
+        XCTAssertEqual(controller.commands, [.init(action: .nextTrack, target: .custom(app))])
+        XCTAssertEqual(controller.stateQueries, [.custom(app)])
+    }
+
+    func testCustomUnknownStateStillReceivesFixedCommands() {
+        let app = makeCustomApp(stateAvailable: false)
+        router.updateMode(.custom(app))
+        controller.destinationStates[.custom(app)] = .unknown
+
+        router.handle(.previousTrack)
+
+        XCTAssertEqual(controller.commands, [.init(action: .previousTrack, target: .custom(app))])
+    }
+
+    func testCustomPlayPauseDoesNotChangeAutomaticHistory() {
+        let app = makeCustomApp(stateAvailable: false)
+        router.updateLastPlaying(.appleMusic)
+        router.updateMode(.custom(app))
+        controller.destinationStates[.custom(app)] = .unknown
+
+        router.handle(.playPause)
+
+        XCTAssertEqual(router.lastPlaying, .appleMusic)
+    }
+
+    func testAutomaticQueriesOnlyBuiltInPlayers() {
+        controller.states = [.spotify: .playing, .appleMusic: .stopped]
+
+        router.handle(.playPause)
+
+        XCTAssertEqual(controller.stateQueries, [.spotify, .appleMusic])
+        XCTAssertEqual(controller.commands, [.init(action: .playPause, target: .spotify)])
     }
 }

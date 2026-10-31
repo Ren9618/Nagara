@@ -31,13 +31,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nagara uses Apple Events to control Spotify and Apple Music."
+            "value" : "Nagara uses Apple Events to control the media player you choose."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nagara が Spotify と Apple Music を操作するために使用します。"
+            "value" : "Nagara が選択したメディアプレイヤーを操作するために使用します。"
           }
         }
       }
