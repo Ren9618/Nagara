@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App.Tagline" xml:space="preserve">
+    <value>メディアキーの送り先を固定する常駐アプリ</value>
+  </data>
+  <data name="App.PrivacyNote" xml:space="preserve">
+    <value>通信なし・テレメトリなし。設定はこの PC にのみ保存されます。</value>
+  </data>
+  <data name="App.UnexpectedError" xml:space="preserve">
+    <value>予期しないエラーが発生しました: {0}</value>
+  </data>
+  <data name="Settings.Title" xml:space="preserve">
+    <value>Nagara 設定</value>
+  </data>
+  <data name="Settings.DestinationSection" xml:space="preserve">
+    <value>メディアキーの送り先</value>
+  </data>
+  <data name="Settings.DestinationDescription" xml:space="preserve">
+    <value>再生／停止・次へ・前へを、どのアプリに送るかを選びます。</value>
+  </data>
+  <data name="Mode.Spotify" xml:space="preserve">
+    <value>Spotify</value>
+  </data>
+  <data name="Mode.SpotifyDescription" xml:space="preserve">
+    <value>ブラウザで動画を再生していても、操作は Spotify だけに送ります。</value>
+  </data>
+  <data name="Mode.Automatic" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="Mode.AutomaticDescription" xml:space="preserve">
+    <value>再生中のセッションを優先します。複数再生中なら、現在のセッション → 最後に送った先 → Spotify の順で選びます。</value>
+  </data>
+  <data name="Mode.Fixed" xml:space="preserve">
+    <value>セッション固定</value>
+  </data>
+  <data name="Mode.FixedDescription" xml:space="preserve">
+    <value>一覧から選んだアプリのセッションにだけ送ります。</value>
+  </data>
+  <data name="Settings.FixedSession" xml:space="preserve">
+    <value>固定するセッション</value>
+  </data>
+  <data name="Settings.RefreshSessions" xml:space="preserve">
+    <value>再読み込み</value>
+  </data>
+  <data name="Settings.NoSessions" xml:space="preserve">
+    <value>メディアセッションが見つかりません。アプリで何かを再生してから再読み込みしてください。</value>
+  </data>
+  <data name="Settings.SessionMissing" xml:space="preserve">
+    <value>{0}（未検出）</value>
+  </data>
+  <data name="Settings.SessionLabel" xml:space="preserve">
+    <value>{0} — {1}</value>
+  </data>
+  <data name="Settings.BehaviorSection" xml:space="preserve">
+    <value>動作</value>
+  </data>
+  <data name="Settings.Intercept" xml:space="preserve">
+    <value>メディアキーを横取り</value>
+  </data>
+  <data name="Settings.InterceptDescription" xml:space="preserve">
+    <value>オンにすると、Nagara が再生／停止・次へ・前へを受け取ります。オフにすると OS 標準の動作に戻ります。</value>
+  </data>
+  <data name="Settings.LaunchAtLogin" xml:space="preserve">
+    <value>ログイン時に起動</value>
+  </data>
+  <data name="Settings.LaunchAtLoginDescription" xml:space="preserve">
+    <value>Windows へのサインイン時に、タスクトレイへ自動で常駐します。</value>
+  </data>
+  <data name="Settings.LanguageSection" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Settings.LanguageDescription" xml:space="preserve">
+    <value>表示言語を選びます。</value>
+  </data>
+  <data name="Settings.LanguageAuto" xml:space="preserve">
+    <value>自動（OS の表示言語）</value>
+  </data>
+  <data name="Settings.LanguageJapanese" xml:space="preserve">
+    <value>日本語</value>
+  </data>
+  <data name="Settings.LanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Settings.LanguageRestartNote" xml:space="preserve">
+    <value>言語の変更は、Nagara を再起動すると反映されます。</value>
+  </data>
+  <data name="Settings.DiagnosticsSection" xml:space="preserve">
+    <value>診断情報</value>
+  </data>
+  <data name="Settings.DiagnosticsDescription" xml:space="preserve">
+    <value>うまく動かないときは、この情報をコピーして Issue に添付してください。</value>
+  </data>
+  <data name="Settings.HookStatus" xml:space="preserve">
+    <value>フック状態</value>
+  </data>
+  <data name="Settings.LastKey" xml:space="preserve">
+    <value>最後に処理したメディアキー</value>
+  </data>
+  <data name="Settings.LastTarget" xml:space="preserve">
+    <value>最後の送り先</value>
+  </data>
+  <data name="Settings.Version" xml:space="preserve">
+    <value>バージョン</value>
+  </data>
+  <data name="Settings.ExecutablePath" xml:space="preserve">
+    <value>実行パス</value>
+  </data>
+  <data name="Settings.SettingsPath" xml:space="preserve">
+    <value>設定ファイル</value>
+  </data>
+  <data name="Settings.Sessions" xml:space="preserve">
+    <value>現在のセッション一覧</value>
+  </data>
+  <data name="Settings.NoActiveSessions" xml:space="preserve">
+    <value>現在、メディアセッションはありません。</value>
+  </data>
+  <data name="Settings.CopyDiagnostics" xml:space="preserve">
+    <value>診断情報をコピー</value>
+  </data>
+  <data name="Settings.OpenLogFolder" xml:space="preserve">
+    <value>ログフォルダを開く</value>
+  </data>
+  <data name="Settings.LogFolderOpened" xml:space="preserve">
+    <value>ログフォルダを開きました。</value>
+  </data>
+  <data name="Settings.OpenLogFolderFailed" xml:space="preserve">
+    <value>ログフォルダを開けませんでした: {0}</value>
+  </data>
+  <data name="Settings.Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Settings.Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Settings.Saved" xml:space="preserve">
+    <value>設定を保存しました。</value>
+  </data>
+  <data name="Settings.SaveFailed" xml:space="preserve">
+    <value>設定を保存できませんでした: {0}</value>
+  </data>
+  <data name="Settings.StartupFailed" xml:space="preserve">
+    <value>ログイン時の起動を設定できませんでした: {0}</value>
+  </data>
+  <data name="Settings.HookFailed" xml:space="preserve">
+    <value>メディアキーを横取りできませんでした: {0}</value>
+  </data>
+  <data name="Settings.SelectSessionRequired" xml:space="preserve">
+    <value>固定するセッションを選んでください。</value>
+  </data>
+  <data name="Settings.Copied" xml:space="preserve">
+    <value>診断情報をコピーしました。</value>
+  </data>
+  <data name="Settings.CopyFailed" xml:space="preserve">
+    <value>コピーできませんでした: {0}</value>
+  </data>
+  <data name="Settings.LoadFailed" xml:space="preserve">
+    <value>設定を読み込めませんでした。初期値を使用します。</value>
+  </data>
+  <data name="Settings.RefreshFailed" xml:space="preserve">
+    <value>セッション一覧を更新できませんでした: {0}</value>
+  </data>
+  <data name="Settings.Loading" xml:space="preserve">
+    <value>読み込み中…</value>
+  </data>
+  <data name="Playback.Playing" xml:space="preserve">
+    <value>再生中</value>
+  </data>
+  <data name="Playback.Paused" xml:space="preserve">
+    <value>一時停止</value>
+  </data>
+  <data name="Playback.Stopped" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Playback.Closed" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="Playback.Unknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="Hook.Active" xml:space="preserve">
+    <value>有効</value>
+  </data>
+  <data name="Hook.Inactive" xml:space="preserve">
+    <value>無効</value>
+  </data>
+  <data name="Hook.Failed" xml:space="preserve">
+    <value>失敗: {0}</value>
+  </data>
+  <data name="Command.PlayPause" xml:space="preserve">
+    <value>再生／停止</value>
+  </data>
+  <data name="Command.NextTrack" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="Command.PreviousTrack" xml:space="preserve">
+    <value>前へ</value>
+  </data>
+  <data name="Diagnostics.None" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="Diagnostics.NoTarget" xml:space="preserve">
+    <value>送り先なし</value>
+  </data>
+  <data name="Diagnostics.SendFailed" xml:space="preserve">
+    <value>{0}（送信失敗）</value>
+  </data>
+  <data name="Diagnostics.LastError" xml:space="preserve">
+    <value>直近のエラー</value>
+  </data>
+  <data name="Diagnostics.SettingsLoadFailed" xml:space="preserve">
+    <value>設定ファイルを読み込めませんでした: {0}</value>
+  </data>
+  <data name="Diagnostics.StartupSyncFailed" xml:space="preserve">
+    <value>ログイン時の起動を同期できませんでした: {0}</value>
+  </data>
+  <data name="Diagnostics.StartupUpdateFailed" xml:space="preserve">
+    <value>ログイン時の起動を更新できませんでした: {0}</value>
+  </data>
+  <data name="Diagnostics.HookNotInitialized" xml:space="preserve">
+    <value>キーボードフックが初期化されていません。</value>
+  </data>
+  <data name="Diagnostics.SpotifyLaunchFailed" xml:space="preserve">
+    <value>Spotify を起動できませんでした。</value>
+  </data>
+  <data name="Diagnostics.SpotifySessionTimeout" xml:space="preserve">
+    <value>10 秒以内に Spotify のメディアセッションが見つかりませんでした。</value>
+  </data>
+  <data name="Diagnostics.PersistLastTargetFailed" xml:space="preserve">
+    <value>最後の送り先を保存できませんでした: {0}</value>
+  </data>
+  <data name="Diagnostics.TargetDisappeared" xml:space="preserve">
+    <value>送信前に送り先のセッションが終了しました。</value>
+  </data>
+  <data name="Diagnostics.CommandRejected" xml:space="preserve">
+    <value>{1} への {0} の送信が拒否されました。</value>
+  </data>
+  <data name="Diagnostics.ReportTitle" xml:space="preserve">
+    <value>Nagara 診断情報</value>
+  </data>
+  <data name="Diagnostics.ReportGenerated" xml:space="preserve">
+    <value>生成日時</value>
+  </data>
+  <data name="Diagnostics.ReportOS" xml:space="preserve">
+    <value>OS</value>
+  </data>
+  <data name="Diagnostics.ReportInterception" xml:space="preserve">
+    <value>横取り</value>
+  </data>
+  <data name="Diagnostics.ReportMode" xml:space="preserve">
+    <value>送り先モード</value>
+  </data>
+  <data name="Diagnostics.ReportFixedSession" xml:space="preserve">
+    <value>固定セッション</value>
+  </data>
+  <data name="Diagnostics.ReportLanguage" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Diagnostics.ReportLastError" xml:space="preserve">
+    <value>直近のエラー</value>
+  </data>
+  <data name="Diagnostics.ReportCurrentSession" xml:space="preserve">
+    <value>現在のセッション</value>
+  </data>
+  <data name="Diagnostics.ReportCurrent" xml:space="preserve">
+    <value>（現在）</value>
+  </data>
+  <data name="Diagnostics.ReportNoSessions" xml:space="preserve">
+    <value>（セッションなし）</value>
+  </data>
+  <data name="Diagnostics.ReportResult" xml:space="preserve">
+    <value>結果</value>
+  </data>
+  <data name="Diagnostics.ResultSent" xml:space="preserve">
+    <value>送信成功</value>
+  </data>
+  <data name="Diagnostics.ResultNoTarget" xml:space="preserve">
+    <value>送り先なし</value>
+  </data>
+  <data name="Diagnostics.ResultFailed" xml:space="preserve">
+    <value>送信失敗</value>
+  </data>
+  <data name="Diagnostics.ResultNone" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="Tray.Tooltip" xml:space="preserve">
+    <value>Nagara — {0}</value>
+  </data>
+  <data name="Tray.TooltipOff" xml:space="preserve">
+    <value>Nagara — {0}（横取り OFF）</value>
+  </data>
+  <data name="Tray.HookFailed" xml:space="preserve">
+    <value>メディアキーを横取りできませんでした。設定の診断情報を確認してください。</value>
+  </data>
+  <data name="Tray.SaveFailed" xml:space="preserve">
+    <value>設定を保存できませんでした: {0}</value>
+  </data>
+  <data name="Menu.Destination" xml:space="preserve">
+    <value>送り先</value>
+  </data>
+  <data name="Menu.Spotify" xml:space="preserve">
+    <value>Spotify</value>
+  </data>
+  <data name="Menu.Automatic" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="Menu.Fixed" xml:space="preserve">
+    <value>セッション固定</value>
+  </data>
+  <data name="Menu.NoSessions" xml:space="preserve">
+    <value>（セッションなし）</value>
+  </data>
+  <data name="Menu.MissingSession" xml:space="preserve">
+    <value>{0}（未検出）</value>
+  </data>
+  <data name="Menu.Intercept" xml:space="preserve">
+    <value>メディアキーを横取り</value>
+  </data>
+  <data name="Menu.Settings" xml:space="preserve">
+    <value>設定...</value>
+  </data>
+  <data name="Menu.Quit" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="Common.On" xml:space="preserve">
+    <value>オン</value>
+  </data>
+  <data name="Common.Off" xml:space="preserve">
+    <value>オフ</value>
+  </data>
+  <data name="Common.None" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="Common.Current" xml:space="preserve">
+    <value>現在</value>
+  </data>
+</root>

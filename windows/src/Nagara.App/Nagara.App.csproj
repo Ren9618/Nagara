@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Assets\Nagara.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>Nagara</AssemblyName>
+    <RootNamespace>Nagara.App</RootNamespace>
+    <Version>0.1.0</Version>
+    <Authors>Rayno Works</Authors>
+    <Product>Nagara</Product>
+    <Description>Pins Windows media keys to the player you choose.</Description>
+    <Copyright>Copyright (c) 2026 Rayno Works</Copyright>
+    <NeutralResourcesLanguage>ja</NeutralResourcesLanguage>
+    <SatelliteResourceLanguages>ja;en</SatelliteResourceLanguages>
+    <!-- WPF owns DPI awareness through app.manifest; WFAC010's WinForms-only
+         guidance would remove the WPF PerMonitorV2 declaration. -->
+    <NoWarn>$(NoWarn);WFAC010</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nagara.Core\Nagara.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Nagara.ico" />
+    <Resource Include="Assets\Nagara.ico" />
+  </ItemGroup>
+</Project>

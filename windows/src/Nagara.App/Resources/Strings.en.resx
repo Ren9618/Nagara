@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App.Tagline" xml:space="preserve">
+    <value>A tray app that keeps your media keys pointed at the player you choose.</value>
+  </data>
+  <data name="App.PrivacyNote" xml:space="preserve">
+    <value>No network access. No telemetry. Settings stay on this PC.</value>
+  </data>
+  <data name="App.UnexpectedError" xml:space="preserve">
+    <value>An unexpected error occurred: {0}</value>
+  </data>
+  <data name="Settings.Title" xml:space="preserve">
+    <value>Nagara Settings</value>
+  </data>
+  <data name="Settings.DestinationSection" xml:space="preserve">
+    <value>Media key destination</value>
+  </data>
+  <data name="Settings.DestinationDescription" xml:space="preserve">
+    <value>Choose which app receives play/pause, next, and previous.</value>
+  </data>
+  <data name="Mode.Spotify" xml:space="preserve">
+    <value>Spotify</value>
+  </data>
+  <data name="Mode.SpotifyDescription" xml:space="preserve">
+    <value>Media keys go only to Spotify, even while a browser is playing video.</value>
+  </data>
+  <data name="Mode.Automatic" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="Mode.AutomaticDescription" xml:space="preserve">
+    <value>Playing sessions win. If several are playing, Nagara prefers the current session, then the last target, then Spotify.</value>
+  </data>
+  <data name="Mode.Fixed" xml:space="preserve">
+    <value>Fixed session</value>
+  </data>
+  <data name="Mode.FixedDescription" xml:space="preserve">
+    <value>Media keys go only to the session you select below.</value>
+  </data>
+  <data name="Settings.FixedSession" xml:space="preserve">
+    <value>Fixed session</value>
+  </data>
+  <data name="Settings.RefreshSessions" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Settings.NoSessions" xml:space="preserve">
+    <value>No media sessions found. Start playback in an app, then refresh.</value>
+  </data>
+  <data name="Settings.SessionMissing" xml:space="preserve">
+    <value>{0} (not found)</value>
+  </data>
+  <data name="Settings.SessionLabel" xml:space="preserve">
+    <value>{0} — {1}</value>
+  </data>
+  <data name="Settings.BehaviorSection" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="Settings.Intercept" xml:space="preserve">
+    <value>Capture media keys</value>
+  </data>
+  <data name="Settings.InterceptDescription" xml:space="preserve">
+    <value>When on, Nagara handles play/pause, next, and previous. Turn it off to return to standard Windows behavior.</value>
+  </data>
+  <data name="Settings.LaunchAtLogin" xml:space="preserve">
+    <value>Launch at sign-in</value>
+  </data>
+  <data name="Settings.LaunchAtLoginDescription" xml:space="preserve">
+    <value>Start in the notification area when you sign in to Windows.</value>
+  </data>
+  <data name="Settings.LanguageSection" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Settings.LanguageDescription" xml:space="preserve">
+    <value>Choose the display language.</value>
+  </data>
+  <data name="Settings.LanguageAuto" xml:space="preserve">
+    <value>Auto (Windows display language)</value>
+  </data>
+  <data name="Settings.LanguageJapanese" xml:space="preserve">
+    <value>日本語</value>
+  </data>
+  <data name="Settings.LanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Settings.LanguageRestartNote" xml:space="preserve">
+    <value>Language changes take effect after you restart Nagara.</value>
+  </data>
+  <data name="Settings.DiagnosticsSection" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+  <data name="Settings.DiagnosticsDescription" xml:space="preserve">
+    <value>If something is not working, copy this information into an issue.</value>
+  </data>
+  <data name="Settings.HookStatus" xml:space="preserve">
+    <value>Hook status</value>
+  </data>
+  <data name="Settings.LastKey" xml:space="preserve">
+    <value>Last media key handled</value>
+  </data>
+  <data name="Settings.LastTarget" xml:space="preserve">
+    <value>Last destination</value>
+  </data>
+  <data name="Settings.Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Settings.ExecutablePath" xml:space="preserve">
+    <value>Executable</value>
+  </data>
+  <data name="Settings.SettingsPath" xml:space="preserve">
+    <value>Settings file</value>
+  </data>
+  <data name="Settings.Sessions" xml:space="preserve">
+    <value>Current sessions</value>
+  </data>
+  <data name="Settings.NoActiveSessions" xml:space="preserve">
+    <value>There are no media sessions right now.</value>
+  </data>
+  <data name="Settings.CopyDiagnostics" xml:space="preserve">
+    <value>Copy diagnostics</value>
+  </data>
+  <data name="Settings.OpenLogFolder" xml:space="preserve">
+    <value>Open log folder</value>
+  </data>
+  <data name="Settings.LogFolderOpened" xml:space="preserve">
+    <value>Opened the log folder.</value>
+  </data>
+  <data name="Settings.OpenLogFolderFailed" xml:space="preserve">
+    <value>Could not open the log folder: {0}</value>
+  </data>
+  <data name="Settings.Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Settings.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Settings.Saved" xml:space="preserve">
+    <value>Settings saved.</value>
+  </data>
+  <data name="Settings.SaveFailed" xml:space="preserve">
+    <value>Could not save settings: {0}</value>
+  </data>
+  <data name="Settings.StartupFailed" xml:space="preserve">
+    <value>Could not update launch at sign-in: {0}</value>
+  </data>
+  <data name="Settings.HookFailed" xml:space="preserve">
+    <value>Could not capture media keys: {0}</value>
+  </data>
+  <data name="Settings.SelectSessionRequired" xml:space="preserve">
+    <value>Select a session to fix.</value>
+  </data>
+  <data name="Settings.Copied" xml:space="preserve">
+    <value>Diagnostics copied.</value>
+  </data>
+  <data name="Settings.CopyFailed" xml:space="preserve">
+    <value>Could not copy: {0}</value>
+  </data>
+  <data name="Settings.LoadFailed" xml:space="preserve">
+    <value>The settings file could not be read. Defaults are in use.</value>
+  </data>
+  <data name="Settings.RefreshFailed" xml:space="preserve">
+    <value>Could not refresh sessions: {0}</value>
+  </data>
+  <data name="Settings.Loading" xml:space="preserve">
+    <value>Loading…</value>
+  </data>
+  <data name="Playback.Playing" xml:space="preserve">
+    <value>Playing</value>
+  </data>
+  <data name="Playback.Paused" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="Playback.Stopped" xml:space="preserve">
+    <value>Stopped</value>
+  </data>
+  <data name="Playback.Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="Playback.Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Hook.Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Hook.Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Hook.Failed" xml:space="preserve">
+    <value>Failed: {0}</value>
+  </data>
+  <data name="Command.PlayPause" xml:space="preserve">
+    <value>Play/Pause</value>
+  </data>
+  <data name="Command.NextTrack" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Command.PreviousTrack" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="Diagnostics.None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Diagnostics.NoTarget" xml:space="preserve">
+    <value>No destination</value>
+  </data>
+  <data name="Diagnostics.SendFailed" xml:space="preserve">
+    <value>{0} (send failed)</value>
+  </data>
+  <data name="Diagnostics.LastError" xml:space="preserve">
+    <value>Last error</value>
+  </data>
+  <data name="Diagnostics.SettingsLoadFailed" xml:space="preserve">
+    <value>The settings file could not be read: {0}</value>
+  </data>
+  <data name="Diagnostics.StartupSyncFailed" xml:space="preserve">
+    <value>Could not synchronize launch at sign-in: {0}</value>
+  </data>
+  <data name="Diagnostics.StartupUpdateFailed" xml:space="preserve">
+    <value>Could not update launch at sign-in: {0}</value>
+  </data>
+  <data name="Diagnostics.HookNotInitialized" xml:space="preserve">
+    <value>The keyboard hook is not initialized.</value>
+  </data>
+  <data name="Diagnostics.SpotifyLaunchFailed" xml:space="preserve">
+    <value>Spotify could not be launched.</value>
+  </data>
+  <data name="Diagnostics.SpotifySessionTimeout" xml:space="preserve">
+    <value>Spotify did not create a media session within 10 seconds.</value>
+  </data>
+  <data name="Diagnostics.PersistLastTargetFailed" xml:space="preserve">
+    <value>Could not save the last destination: {0}</value>
+  </data>
+  <data name="Diagnostics.TargetDisappeared" xml:space="preserve">
+    <value>The target session ended before the command was sent.</value>
+  </data>
+  <data name="Diagnostics.CommandRejected" xml:space="preserve">
+    <value>The {0} command for {1} was rejected.</value>
+  </data>
+  <data name="Diagnostics.ReportTitle" xml:space="preserve">
+    <value>Nagara diagnostics</value>
+  </data>
+  <data name="Diagnostics.ReportGenerated" xml:space="preserve">
+    <value>Generated</value>
+  </data>
+  <data name="Diagnostics.ReportOS" xml:space="preserve">
+    <value>OS</value>
+  </data>
+  <data name="Diagnostics.ReportInterception" xml:space="preserve">
+    <value>Capture</value>
+  </data>
+  <data name="Diagnostics.ReportMode" xml:space="preserve">
+    <value>Destination mode</value>
+  </data>
+  <data name="Diagnostics.ReportFixedSession" xml:space="preserve">
+    <value>Fixed session</value>
+  </data>
+  <data name="Diagnostics.ReportLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Diagnostics.ReportLastError" xml:space="preserve">
+    <value>Last error</value>
+  </data>
+  <data name="Diagnostics.ReportCurrentSession" xml:space="preserve">
+    <value>Current session</value>
+  </data>
+  <data name="Diagnostics.ReportCurrent" xml:space="preserve">
+    <value>(current)</value>
+  </data>
+  <data name="Diagnostics.ReportNoSessions" xml:space="preserve">
+    <value>(no sessions)</value>
+  </data>
+  <data name="Diagnostics.ReportResult" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="Diagnostics.ResultSent" xml:space="preserve">
+    <value>Sent</value>
+  </data>
+  <data name="Diagnostics.ResultNoTarget" xml:space="preserve">
+    <value>No destination</value>
+  </data>
+  <data name="Diagnostics.ResultFailed" xml:space="preserve">
+    <value>Send failed</value>
+  </data>
+  <data name="Diagnostics.ResultNone" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Tray.Tooltip" xml:space="preserve">
+    <value>Nagara — {0}</value>
+  </data>
+  <data name="Tray.TooltipOff" xml:space="preserve">
+    <value>Nagara — {0} (capture off)</value>
+  </data>
+  <data name="Tray.HookFailed" xml:space="preserve">
+    <value>Nagara could not capture media keys. See Diagnostics in Settings.</value>
+  </data>
+  <data name="Tray.SaveFailed" xml:space="preserve">
+    <value>Could not save settings: {0}</value>
+  </data>
+  <data name="Menu.Destination" xml:space="preserve">
+    <value>Destination</value>
+  </data>
+  <data name="Menu.Spotify" xml:space="preserve">
+    <value>Spotify</value>
+  </data>
+  <data name="Menu.Automatic" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="Menu.Fixed" xml:space="preserve">
+    <value>Fixed session</value>
+  </data>
+  <data name="Menu.NoSessions" xml:space="preserve">
+    <value>(no sessions)</value>
+  </data>
+  <data name="Menu.MissingSession" xml:space="preserve">
+    <value>{0} (not found)</value>
+  </data>
+  <data name="Menu.Intercept" xml:space="preserve">
+    <value>Capture media keys</value>
+  </data>
+  <data name="Menu.Settings" xml:space="preserve">
+    <value>Settings...</value>
+  </data>
+  <data name="Menu.Quit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="Common.On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Common.Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Common.None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Common.Current" xml:space="preserve">
+    <value>Current</value>
+  </data>
+</root>
